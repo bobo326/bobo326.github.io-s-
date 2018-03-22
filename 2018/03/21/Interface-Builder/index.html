@@ -207,10 +207,10 @@
 <p>那么storybord又是如何加载的呢？</p>
 <p>在创建storyboard apps 时，会自动生成几个默认的文件， AppDelegate</p>
 <p>打开默认生成的 AppDelegate.swift 文件，你会感到很诧异， AppDelegate.swift 所展示的代码几乎为空。 所有的method 都是空的。 即使application:didFinishLaunchingWithOptions: ， 仅仅是返回 YES，也没有其他代码可言。</p>
-<p>整个AppDelegate都没看到什么玄机。 貌似庞然大物的storyboard，究竟是怎么玩的？<br>当storyboard apps 启动时， 它怎么知道从哪里加载main.storyboard 文件呢？  秘密就在info.plist上。<br><img src="images/RTX截图未命名.png" alt="info.plist"></p>
+<p>整个AppDelegate都没看到什么玄机。 貌似庞然大物的storyboard，究竟是怎么玩的？<br>当storyboard apps 启动时， 它怎么知道从哪里加载main.storyboard 文件呢？  秘密就在info.plist上。<br><img src="images/RTX2.png" alt="info.plist"></p>
 <p>你会看到， UIMainStoryboardFile 或 “Main storyboard file base name” 的键值设为了 Main。</p>
 <p>当app 启动时，UIApplicaiton 会自动加载main.storyboard 文件。 同时，会自动加载 main.storyboard  上的第一个视图控制器 （view controller），并且，将该 view controller 所对应的 View 加载到UIWindow 对象中。<br>也许你已经注意到了， app 启动时，做了这么的工作，但我们还没有编写一行代码。 storyboard技术的引进，其最大的意义在于， 大大减少与 UI相关的 代码量。<br>storyboard 帮手：Deployment Info 的设置。  如下：</p>
-<p><img src="images/RTX截图22.png" alt="Deployment Info "></p>
+<p><img src="images/RTX1.png" alt="Deployment Info "></p>
 <p>因为整个App 启动和运行的入口，就在UIApplicationMain中。<br>以上讲述了 sotroyboard 的加载过程。 不管nib 派还是 storyboard 派，其UIMainWindow的加载原理都是一样的。</p>
 
             </div>
