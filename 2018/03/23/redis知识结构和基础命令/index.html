@@ -144,20 +144,57 @@
 </nav>
 
         <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(http://placeimg.com/522/251/nature/sepia);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >SVN</h2></a>
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(http://placeimg.com/522/251/tech/sepia);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >redis知识结构和基础命令</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <ul>
-<li>SVN</li>
+                <p><a href="http://lib.csdn.net/base/redis/structure" target="_blank" rel="noopener">redis知识结构图</a><br><strong>Redis的简介</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/13/2348935.html" target="_blank" rel="noopener">一、简介二、Redis的优势三、目前版本中Redis存在的主要问题四、和关系型数据库的比较五、如何持久化内存数据</a></p>
+<p><strong>Redis String数据类型</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/13/2349815.html" target="_blank" rel="noopener">一、概述二、相关命令列表三、命令示例</a></p>
+<p><strong>Redis List数据类型</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/14/2351859.html" target="_blank" rel="noopener">一、概述二、相关命令列表三、命令示例四、链表结构的小技巧</a></p>
+<p><strong>Redis Set数据类型</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/15/2352512.html" target="_blank" rel="noopener">一、概述二、相关命令列表三、命令示例四、应用范围</a></p>
+<p><strong>Redis Hashes数据类型</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/15/2352932.html" target="_blank" rel="noopener">一、概述二、相关命令列表三、命令示例</a></p>
+<p><strong>Redis Sorted-Sets数据类型</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/16/2354994.html" target="_blank" rel="noopener">一、概述二、相关命令列表三、命令示例四、应用范围</a></p>
+<p><strong>Redis Key操作命令</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/18/2356951.html" target="_blank" rel="noopener">一、概述二、相关命令列表三、命令示例</a></p>
+<p><strong>Redis 事务</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/18/2357783.html" target="_blank" rel="noopener">一、概述二、相关命令列表三、命令示例四、WATCH命令和基于CAS的乐观锁</a></p>
+<p><strong>Redis 主从复制</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/23/2364717.html" target="_blank" rel="noopener">一、Redis的Replication二、Replication的工作原理三、如何配置Replication四、应用示例</a></p>
+<p><strong>Redis 持久化</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/23/2365017.html" target="_blank" rel="noopener">一、Redis提供了哪些持久化机制二、RDB机制的优势和劣势三、AOF机制的优势和劣势四、其它</a></p>
+<p><strong>Redis 虚拟内存</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/24/2366803.html" target="_blank" rel="noopener">一、简介二、应用场景三、配置</a></p>
+<p><strong>Redis 管线</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/25/2367816.html" target="_blank" rel="noopener">一、请求应答协议和RTT二、管线(pipelining)三、Benchmark</a></p>
+<p><strong>Redis 服务器管理</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/27/2369480.html" target="_blank" rel="noopener">一、概述二、相关命令列表</a></p>
+<p><strong>Redis 内存优化</strong><br><a href="http://www.cnblogs.com/stephen-liu74/archive/2012/02/27/2370521.html" target="_blank" rel="noopener">一、特殊编码二、BIT和Byte级别的操作三、尽可能使用Hash</a></p>
+<p><a href="http://www.cnblogs.com/clover-siyecao/p/5600078.html" target="_blank" rel="noopener">使用 python 操作 redis</a></p>
+<p><a href="http://www.redis.net.cn/order/" target="_blank" rel="noopener">基础命令</a><br>*<em>keys </em>:查询所有键</p>
+<p>exists：#判断该键是否存在，存在返回1，否则返回0。</p>
+<p>append： #该键并不存在，因此append命令返回当前Value的长度；#该键已经存在，因此返回追加后Value的长度。</p>
+<p>strlen： #获取指定Key的字符长度，等效于C库中strlen函数。</p>
+<p>getset: 在获取原有值的同时，并将其设置为新值，这两个操作原子性的同时完成。</p>
+<p>setex: 设置key的过期时间</p>
+<p>ttl: 通过ttl命令查看一下指定Key的剩余存活时间(秒数)，0表示已经过期，-1表示永不过期。</p>
+<p>setrange: 替换key指定字节；如： setrange mykey 6 dd #从第六个字节开始替换2个字节(dd有2个字节)</p>
+<p>getrange : 截取该键的value。</p>
+<p>mset : 批量设置</p>
+<p>mget:批量获取。</p>
+<p>setnx : 该键并不存在，因此该命令执行成功。<br>lpush: 创建该键及与其关联的List，之后在将参数中的values从左到右依次插入。</p>
+<p>lrange: 去链表里的元素，，0表示第一个元素，-1表示最后一个元素。</p>
+<p>lpushx：如果键此时并不存在，因此该命令将不会进行任何操作，其返回值为0。</p>
+<p>lpop: 弹出链表头部的元素。（弹出的元素会从链表中消失）</p>
+<p>llen: 显示链表中元素的数量。</p>
+<p>lrem: 如：lrem mykey 2 a 从头部(left)向尾部(right)变量链表，删除2个值等于a的元素，返回值为实际删除的数量。</p>
+<p>lindex: 获取制定索引值的元素值。 如： lindex mykey 1。获取索引值为1(头部的第二个元素)的元素值;</p>
+<p>lset: lset mykey 1 e. #将索引值为1(头部的第二个元素)的元素值设置为新值e。</p>
+<p>ltrim: ltrim mykey 0 2. #仅保留索引值0到2之间的3个元素，注意第0个和第2个元素均被保留。</p>
+<p>linsert : - linsert mykey before a a1<em> 在a的前面插入新元素a1。</em> linsert mykey after e e2 #在e的后面插入新元素e2，从返回结果看已经插入成功。</p>
+<p>rpoplpush:</p>
+<ul>
+<li>rpoplpush mykey mykey2<em> 将mykey的尾部元素弹出，同时再插入到mykey2的头部(原子性的完成这两步操作)。</em></li>
+<li>rpoplpush mykey mykey #将source和destination设为同一键，将mykey中的尾部元素移到其头部。</li>
 </ul>
-<p>创建一个名为 <strong>UAV</strong> 的仓库</p>
-<p>idea:~ idea$ svnadmin create ~/Documents/svn/UAV</p>
-<p>启动 <strong>svn</strong> 服务器</p>
-<p>idea:~ idea$ svnserve -d -r ~/Documents/svn</p>
-<p>将服务器中 <strong>uav/doc</strong> 仓库的内容下载到 <strong>~/Documents/test</strong> 目录中</p>
-<p>idea:~ idea$ svn checkout svn://#.#.#.#/dev/uav/doc —username=## —password=## ~/Documents/test</p>
+<p>multi: 启动事务</p>
+<p>exec : 执行事务队列中的所有命令</p>
+<p>discard：放弃事务*</p>
+<p><strong>视频资源</strong><br><a href="http://www.imooc.com/learn/839" target="_blank" rel="noopener">java中redis的入门视频</a><br><a href="http://edu.csdn.net/course/detail/2126" target="_blank" rel="noopener">Redis视频教程</a></p>
+<p><strong>redis在线图书</strong><br><a href="http://redisbook.com/" target="_blank" rel="noopener">《Redis 设计与实现》</a><br><a href="http://redisinaction.com/" target="_blank" rel="noopener">《Redis实战》</a></p>
 
             </div>
 
@@ -220,8 +257,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/03/22/SVN/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2018/03/22/SVN/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2018/03/23/redis知识结构和基础命令/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/03/23/redis知识结构和基础命令/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
